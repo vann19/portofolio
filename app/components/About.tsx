@@ -173,17 +173,18 @@ export default function About() {
                 Journey
               </h3>
               {[
-                { year: '2025', title: 'Freelance Developer', desc: 'Building custom web solutions for clients worldwide.' },
-                { year: '2024', title: 'Open Source Contributions', desc: 'Contributing to popular React and Next.js ecosystems.' },
-                { year: '2023', title: 'Web Dev Journey Begins', desc: 'Started learning HTML, CSS, JavaScript, and React.' },
+                { year: '2026', title: 'Fullstack Developer — Garda Tech', desc: 'Bergabung di agency Garda Tech sebagai Fullstack Developer, membangun sistem, API, dan antarmuka untuk berbagai proyek klien.' },
+                { year: '2025', title: 'Freelance Developer', desc: 'Membangun aplikasi web dan sistem sesuai kebutuhan klien dengan fokus pada kualitas kode dan user experience.' },
+                { year: '2024', title: 'SDA - Robotika UTY', desc: 'Anggota aktif di Robotika UTY 2024-2025.' },
+                { year: '2022', title: 'Informatika UTY', desc: 'Mahasiswa jurusan Informatika di Universitas Teknologi Yogyakarta, lulus tahun 2026.' },
               ].map((item, i) => (
                 <div key={i} style={{
                   display: 'flex',
                   gap: '16px',
-                  paddingBottom: i < 2 ? '24px' : '0',
+                  paddingBottom: i < 3 ? '24px' : '0',
                   position: 'relative',
                 }}>
-                  {i < 2 && (
+                  {i < 3 && (
                     <div style={{
                       position: 'absolute',
                       left: '27px',

@@ -32,19 +32,7 @@ export default function Footer() {
             </span>
           </div>
 
-          {/* Nav links */}
-          <div style={{ display: 'flex', gap: '28px' }}>
-            {['About', 'Skills', 'Projects', 'Contact'].map((link) => (
-              <a
-                key={link}
-                href={`#${link.toLowerCase()}`}
-                className="nav-link"
-                style={{ textDecoration: 'none', fontSize: '0.85rem' }}
-              >
-                {link}
-              </a>
-            ))}
-          </div>
+         
 
           {/* Copyright */}
           <div style={{

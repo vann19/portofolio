@@ -1,5 +1,26 @@
 @import "tailwindcss";
 
+/* Custom local fonts */
+@font-face {
+  font-family: "Vorex";
+  src: url("/font/Vorex.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Heading & paragraph font assignments */
+@layer base {
+  h1,
+  h2 {
+    font-family: "Vorex", sans-serif;
+  }
+
+  p {
+    font-family: var(--font-poppins), "Poppins", sans-serif;
+  }
+}
+
 :root {
   --background: #f8fafc;
   --foreground: #0f172a;
@@ -31,6 +52,7 @@
   --color-foreground: var(--foreground);
   --font-sans: "Inter", sans-serif;
   --font-mono: "Fira Code", monospace;
+  --font-vorex: "Vorex", sans-serif;
 }
 
 * {

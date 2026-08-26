@@ -104,7 +104,7 @@ export default function Hero() {
               color: 'var(--foreground)',
             }}>
               Hi, I&apos;m{' '}
-              <span className="gradient-text">Fansyah</span>
+              <span className="gradient-text">Fansyahlaode</span>
             </h1>
 
             {/* Typewriter */}

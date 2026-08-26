@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, MapPin, Zap, Github, Linkedin, Twitter, Instagram, CheckCircle, Loader2, Send } from 'lucide-react';
+import { Mail, MapPin, Zap, Phone, Github, Linkedin, Twitter, Instagram, CheckCircle, Loader2, Send } from 'lucide-react';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
@@ -78,7 +78,8 @@ export default function Contact() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
               { icon: <Mail size={24} />, label: 'Email', value: 'ahmadfansya660@gmail.com', href: 'mailto:hello@vanzer.dev' },
-              { icon: <MapPin size={24} />, label: 'Location', value: 'Indonesia ', href: null },
+              { icon: <Phone size={24} />, label: 'WhatsApp', value: '082239841198', href: 'https://wa.me/6282239841198' },
+              { icon: <MapPin size={24} />, label: 'Location', value: 'Indonesia', href: null },
               { icon: <Zap size={24} />, label: 'Response Time', value: 'Within 24 hours', href: null },
             ].map((info) => (
               <div
@@ -137,7 +138,7 @@ export default function Contact() {
               </div>
               <div style={{ display: 'flex', gap: '12px' }}>
                 {[
-                  { label: 'GitHub', icon: <Github size={20} />, href: '#' },
+                  { label: 'GitHub', icon: <Github size={20} />, href: 'https://github.com/vann19' },
                   { label: 'LinkedIn', icon: <Linkedin size={20} />, href: '#' },
                   { label: 'Twitter', icon: <Twitter size={20} />, href: '#' },
                   { label: 'Instagram', icon: <Instagram size={20} />, href: '#' },
