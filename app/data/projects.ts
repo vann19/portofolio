@@ -6,6 +6,7 @@ export interface Project {
   tags: string[];
   featured: boolean;
   gradient: string;
+  image?: string; // path relative to /public, e.g. '/img/undangan-digital.jpg'
   links: { live: string; github: string };
   features: string[];
   year: string;
@@ -14,36 +15,16 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: 'undangan-digital',
-    title: 'Undangan Digital',
-    description:
-      'Undangan pernikahan digital yang modern dengan desain yang elegan dan fitur yang lengkap.',
-    longDescription:
-      'Undangan pernikahan digital yang modern dengan desain yang elegan dan fitur yang lengkap. Dibuat menggunakan teknologi web modern dengan tampilan yang responsif dan dapat diakses melalui berbagai perangkat.',
-    tags: ['Next.js', 'TypeScript', 'Tailwind'],
-    featured: true,
-    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    links: { live: '#', github: 'https://github.com/vann19/undangan_digital' },
-    features: [
-      'Stripe payment integration with webhooks',
-      'Real-time inventory management dashboard',
-      'JWT auth with role-based access control',
-      'SEO-optimized product pages',
-      'Automated email receipts with Resend',
-    ],
-    year: '2025',
-    role: 'Full Stack Developer',
-  },
-  {
     slug: 'aplikasi-presensi-guru',
     title: 'Aplikasi Presensi Guru',
     description:
       'Aplikasi presensi guru berbasis web dengan fitur login, register, dan manajemen data presensi.',
     longDescription:
       'Aplikasi presensi guru berbasis web dengan fitur login, register, dan manajemen data presensi. Dibuat menggunakan teknologi web modern dengan tampilan yang responsif dan dapat diakses melalui berbagai perangkat.',
-    tags: ['React', 'Tailwind', 'Framer Motion'],
+    tags: ['Next.js', 'Express', 'MySQL'],
     featured: true,
     gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    image: '/img/halaman_presensi.png',
     links: { live: '#', github: 'https://github.com/vann19/Projekpui' },
     features: [
       'Drag-and-drop cards across columns',
@@ -64,6 +45,7 @@ export const projects: Project[] = [
     tags: ['Next.js', 'Tailwind', 'Framer Motion'],
     featured: true,
     gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    image: '/img/gardatech.png',
     links: { live: 'https://www.gardatech.cloud', github: '#' },
     features: [
       'Desain modern dan responsif',
@@ -74,27 +56,50 @@ export const projects: Project[] = [
     year: '2026',
     role: 'Frontend Developer',
   },
-  // {
-  //   slug: 'ai-content-generator',
-  //   title: 'AI Content Generator',
-  //   description:
-  //     'An AI-powered content generation tool using GPT-4 API with a credit system, user auth, and multi-format export options.',
-  //   longDescription:
-  //     'A SaaS tool empowering creators and marketers to generate blog posts, social media captions, ad copy, and more in seconds using GPT-4. Includes a credit-based billing system, usage analytics, and export to PDF or Markdown.',
-  //   tags: ['Next.js', 'OpenAI', 'Prisma', 'Tailwind'],
-  //   featured: false,
-  //   gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-  //   links: { live: '#', github: '#' },
-  //   features: [
-  //     'GPT-4 powered content generation',
-  //     'Credit-based billing system with Stripe',
-  //     'Multi-format export (PDF, Markdown)',
-  //     'Template library with 20+ presets',
-  //     'Usage analytics dashboard',
-  //   ],
-  //   year: '2024',
-  //   role: 'Full Stack Developer',
-  // },
+  {
+    slug: 'basecamps-outdoor',
+    title: 'BaseCamps Outdoor',
+    description:
+      'Platform order rental alat gunung online dengan sistem pemesanan real-time, manajemen stok, dan checkout yang mudah.',
+    longDescription:
+      'BaseCamps Outdoor adalah platform e-commerce untuk sewa peralatan hiking dan mendaki gunung. Memudahkan para pendaki untuk memesan tenda, sleeping bag, carrier, dan berbagai perlengkapan outdoor lainnya secara online dengan sistem pemesanan yang praktis dan terpercaya.',
+    tags: ['Laravel', 'MySQL', 'Bootstrap', 'PHP'],
+    featured: false,
+    gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+    image: '/img/base.png',
+    links: { live: 'https://basecampsoutdoor.com/', github: '#' },
+    features: [
+      'Sistem pemesanan rental alat gunung online',
+      'Manajemen stok dan ketersediaan alat real-time',
+      'Katalog lengkap peralatan hiking & outdoor',
+      'Proses checkout yang mudah dan cepat',
+      'Riwayat pemesanan dan manajemen akun pengguna',
+    ],
+    year: '2024',
+    role: 'Full Stack Developer',
+  },
+  {
+    slug: 'saas-manajemen-bimbel',
+    title: 'SaaS Manajemen Bimbel',
+    description:
+      'Platform SaaS manajemen bimbingan belajar dengan fitur absensi, jadwal kelas, pembayaran SPP, dan laporan progress siswa.',
+    longDescription:
+      'Sistem manajemen bimbingan belajar berbasis SaaS yang memudahkan pengelolaan operasional bimbel secara digital. Fitur lengkap meliputi manajemen siswa & pengajar, penjadwalan kelas otomatis, absensi digital, tagihan & pembayaran SPP, serta laporan perkembangan belajar siswa yang bisa diakses oleh orang tua secara real-time.',
+    tags: ['Bun', 'Elysia.js', 'Docker', 'Redis'],
+    featured: true,
+    gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+    image: '/img/t.png',
+    links: { live: '#', github: '#' },
+    features: [
+      'Manajemen data siswa, pengajar, dan kelas',
+      'Penjadwalan kelas otomatis & notifikasi',
+      'Absensi digital dengan QR Code',
+      'Tagihan & pembayaran SPP online',
+      'Laporan progress belajar siswa real-time',
+    ],
+    year: '2025',
+    role: 'Full Stack Developer',
+  },
   // {
   //   slug: 'real-estate-dashboard',
   //   title: 'Real Estate Dashboard',

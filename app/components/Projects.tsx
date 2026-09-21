@@ -2,11 +2,18 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { projects } from '../data/projects';
-import { ShoppingBag, ClipboardList, Bot, Home, Sparkles, Smartphone, Star, Code2, ExternalLink, ArrowRight } from 'lucide-react';
+import { ShoppingBag, ClipboardList, Bot, Home, Sparkles, Smartphone, Star, Code2, ExternalLink, ArrowRight, Heart, User, Globe, Monitor, Mountain, BookOpen } from 'lucide-react';
 
-// Map slugs to icons
+// Map slugs to icons (shown as overlay when no image, or as fallback)
 const iconMap: Record<string, React.ReactNode> = {
+  'undangan-digital': <Heart size={48} color="white" />,
+  'aplikasi-presensi-guru': <User size={48} color="white" />,
+  'company-profile-gardatech': <Globe size={48} color="white" />,
+  'basecamps-outdoor': <Mountain size={48} color="white" />,
+  'saas-manajemen-bimbel': <BookOpen size={48} color="white" />,
+  // legacy
   'e-commerce-platform': <ShoppingBag size={48} color="white" />,
   'task-management-app': <ClipboardList size={48} color="white" />,
   'ai-content-generator': <Bot size={48} color="white" />,
@@ -14,6 +21,8 @@ const iconMap: Record<string, React.ReactNode> = {
   'portfolio-website': <Sparkles size={48} color="white" />,
   'social-media-clone': <Smartphone size={48} color="white" />,
 };
+
+const defaultIcon = <Monitor size={48} color="white" />;
 
 const filters = ['All', 'Featured', 'Next.js', 'React', 'TypeScript'];
 
@@ -121,14 +130,33 @@ export default function Projects() {
             >
               <Link href={`/${project.slug}`} style={{ position: 'absolute', inset: 0, zIndex: 1 }} aria-label={`View ${project.title} details`} />
               
-              {/* Card header with gradient */}
-              <div style={{ height: '160px', background: project.gradient, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '3.5rem', position: 'relative', overflow: 'hidden' }}>
-                <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.1)', backdropFilter: 'blur(2px)' }} />
-                <span style={{ position: 'relative', zIndex: 1, filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))' }}>
-                  {iconMap[project.slug]}
-                </span>
+              {/* Card header — image or gradient */}
+              <div style={{ height: '190px', position: 'relative', overflow: 'hidden' }}>
+                {project.image ? (
+                  <>
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      style={{ objectFit: 'cover', objectPosition: 'top' }}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    {/* Dark overlay for readability */}
+                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 60%)' }} />
+                  </>
+                ) : (
+                  <>
+                    <div style={{ position: 'absolute', inset: 0, background: project.gradient }} />
+                    <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.1)', backdropFilter: 'blur(2px)' }} />
+                    <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <span style={{ filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))' }}>
+                        {iconMap[project.slug] ?? defaultIcon}
+                      </span>
+                    </div>
+                  </>
+                )}
                 {project.featured && (
-                  <div style={{ position: 'absolute', top: '12px', right: '12px', background: 'rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', padding: '4px 10px', borderRadius: '9999px', fontSize: '0.7rem', fontWeight: '700', color: 'white', textTransform: 'uppercase', letterSpacing: '0.05em', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <div style={{ position: 'absolute', top: '12px', right: '12px', background: 'rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', padding: '4px 10px', borderRadius: '9999px', fontSize: '0.7rem', fontWeight: '700', color: 'white', textTransform: 'uppercase', letterSpacing: '0.05em', display: 'flex', alignItems: 'center', gap: '4px', zIndex: 2 }}>
                     <Star size={10} fill="currentColor" /> Featured
                   </div>
                 )}

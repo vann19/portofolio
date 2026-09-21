@@ -1,17 +1,20 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import type { Project } from '../data/projects';
 import {
   ShoppingBag, ClipboardList, Bot, Home, Sparkles, Smartphone,
   ArrowLeft, ExternalLink, Code2, CheckCircle, Calendar, Briefcase, Tag,
-  Heart, Globe, User, Monitor,
+  Heart, Globe, User, Monitor, Mountain, BookOpen,
 } from 'lucide-react';
 
 const iconMap: Record<string, React.ReactNode> = {
   'undangan-digital': <Heart size={64} color="white" />,
   'aplikasi-presensi-guru': <User size={64} color="white" />,
   'company-profile-gardatech': <Globe size={64} color="white" />,
+  'basecamps-outdoor': <Mountain size={64} color="white" />,
+  'saas-manajemen-bimbel': <BookOpen size={64} color="white" />,
   // legacy / fallback
   'task-management-app': <ClipboardList size={64} color="white" />,
   'ai-content-generator': <Bot size={64} color="white" />,
@@ -27,63 +30,86 @@ export default function ProjectDetail({ project }: { project: Project }) {
     <main style={{ paddingTop: '72px', minHeight: '100vh' }}>
       {/* Hero banner */}
       <div style={{
-        height: '380px',
-        background: project.gradient,
+        height: '420px',
         position: 'relative',
         overflow: 'hidden',
         display: 'flex',
-        alignItems: 'center',
+        alignItems: 'flex-end',
         justifyContent: 'center',
       }}>
-        {/* Background blur effect */}
+        {/* Background: image or gradient */}
+        {project.image ? (
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            priority
+            style={{ objectFit: 'cover', objectPosition: 'top' }}
+            sizes="100vw"
+          />
+        ) : (
+          <div style={{ position: 'absolute', inset: 0, background: project.gradient }} />
+        )}
+
+        {/* Dark gradient overlay (bottom fade) */}
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'rgba(0,0,0,0.25)',
-          backdropFilter: 'blur(1px)',
+          background: project.image
+            ? 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.1) 100%)'
+            : 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.1) 60%)',
         }} />
 
-        {/* Grid overlay */}
+        {/* Grid overlay (subtle) */}
         <div style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)',
           backgroundSize: '50px 50px',
         }} />
 
-        {/* Icon */}
+        {/* Title + icon at bottom */}
         <div style={{
           position: 'relative',
           zIndex: 1,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: '24px',
+          gap: '16px',
+          paddingBottom: '48px',
+          textAlign: 'center',
+          padding: '0 24px 48px',
         }}>
-          <div style={{
-            width: '120px',
-            height: '120px',
-            borderRadius: '28px',
-            background: 'rgba(255,255,255,0.15)',
-            backdropFilter: 'blur(10px)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
-          }}>
-            {iconMap[project.slug] ?? defaultIcon}
-          </div>
+          {!project.image && (
+            <div style={{
+              width: '100px',
+              height: '100px',
+              borderRadius: '24px',
+              background: 'rgba(255,255,255,0.15)',
+              backdropFilter: 'blur(10px)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+              marginBottom: '8px',
+            }}>
+              {iconMap[project.slug] ?? defaultIcon}
+            </div>
+          )}
           <h1 style={{
-            fontSize: 'clamp(2rem, 4vw, 3.5rem)',
+            fontSize: 'clamp(1.8rem, 4vw, 3.2rem)',
             fontWeight: '800',
             color: 'white',
-            textAlign: 'center',
             letterSpacing: '-0.03em',
-            textShadow: '0 2px 20px rgba(0,0,0,0.3)',
+            textShadow: '0 2px 20px rgba(0,0,0,0.5)',
             margin: 0,
+            lineHeight: 1.1,
           }}>
             {project.title}
           </h1>
+          <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1rem', maxWidth: '560px', lineHeight: 1.6, margin: 0 }}>
+            {project.description}
+          </p>
         </div>
       </div>
 
