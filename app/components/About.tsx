@@ -2,8 +2,8 @@
 import { GraduationCap, Target } from 'lucide-react';
 
 const stats = [
-  { label: 'Projects Completed', value: '2' },
-  { label: 'Years Experience', value: '2+' },
+  { label: 'Projects Completed', value: '4' },
+  { label: 'Years Experience', value: '3' },
   { label: 'Technologies', value: '10+' },
 ];
 

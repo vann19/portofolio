@@ -149,7 +149,7 @@ export default function Hero() {
                 <span>View My Work →</span>
               </a>
               <a
-                href="#contact"
+                href="https://drive.google.com/drive/folders/1iQJVV3lqgxJpQ8sL2NcB-os32_fGazVb?usp=sharing"
                 style={{
                   padding: '14px 28px',
                   borderRadius: '12px',
