@@ -95,7 +95,7 @@ export default function Hero() {
           {/* Text content */}
           <div className="animate-slide-left">
 
-            <h1 style={{
+            <h1 data-aos="fade-up" data-aos-delay="100" style={{
               fontSize: 'clamp(2.5rem, 5vw, 4rem)',
               fontWeight: '800',
               lineHeight: '1.1',
@@ -108,7 +108,7 @@ export default function Hero() {
             </h1>
 
             {/* Typewriter */}
-            <div style={{
+            <div data-aos="fade-up" data-aos-delay="200" style={{
               fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)',
               fontWeight: '500',
               color: 'var(--muted)',
@@ -121,7 +121,7 @@ export default function Hero() {
               <span className="cursor-blink" style={{ color: 'var(--accent)', fontWeight: '300' }}>|</span>
             </div>
 
-            <p style={{
+            <p data-aos="fade-up" data-aos-delay="300" style={{
               fontSize: '1.05rem',
               lineHeight: '1.8',
               color: 'var(--muted)',
@@ -132,7 +132,7 @@ export default function Hero() {
             </p>
 
             {/* CTAs */}
-            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+            <div data-aos="fade-up" data-aos-delay="400" style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
               <a
                 href="#projects"
                 className="gradient-btn"
@@ -179,7 +179,7 @@ export default function Hero() {
             </div>
 
             {/* Social links */}
-            <div style={{ display: 'flex', gap: '16px', marginTop: '40px', alignItems: 'center' }}>
+            <div data-aos="fade-up" data-aos-delay="500" style={{ display: 'flex', gap: '16px', marginTop: '40px', alignItems: 'center' }}>
               <span style={{ fontSize: '0.8rem', color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Follow me</span>
               <div style={{ width: '40px', height: '1px', background: 'var(--card-border)' }} />
               {[
@@ -225,7 +225,7 @@ export default function Hero() {
           </div>
 
           {/* Visual / Avatar */}
-          <div className="animate-slide-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <div data-aos="zoom-in" data-aos-delay="250" className="animate-slide-right" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <div className="animate-float" style={{ position: 'relative' }}>
               {/* Decorative ring */}
               <div
@@ -295,7 +295,7 @@ export default function Hero() {
                 whiteSpace: 'nowrap',
                 zIndex: 2,
               }}>
-                <Rocket size={14} style={{ display: 'inline', marginRight: '4px', verticalAlign: 'text-bottom' }} /> 2+ Projects
+                <Rocket size={14} style={{ display: 'inline', marginRight: '4px', verticalAlign: 'text-bottom' }} /> 4+ Projects
               </div>
 
               <div style={{
@@ -313,7 +313,7 @@ export default function Hero() {
                 whiteSpace: 'nowrap',
                 zIndex: 2,
               }}>
-                <Zap size={14} style={{ display: 'inline', marginRight: '4px', verticalAlign: 'text-bottom' }} /> 2+ Years Exp.
+                <Zap size={14} style={{ display: 'inline', marginRight: '4px', verticalAlign: 'text-bottom' }} /> 3+ Years Exp.
               </div>
             </div>
           </div>
@@ -357,7 +357,6 @@ export default function Hero() {
         @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         @media (max-width: 768px) {
           .hero-grid { grid-template-columns: 1fr !important; text-align: center; }
-          .hero-grid > div:last-child { display: none !important; }
         }
       `}</style>
     </section>

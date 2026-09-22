@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Fira_Code, Poppins } from "next/font/google";
 import "./globals.css";
+import AOSProvider from "./components/AOSProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -49,6 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${firaCode.variable} ${poppins.variable}`}>
+        <AOSProvider />
         {children}
       </body>
     </html>
