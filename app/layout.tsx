@@ -27,6 +27,13 @@ export const metadata: Metadata = {
     "Modern portfolio showcasing web development projects and skills. Specialized in React, Next.js, and full stack development.",
   keywords: ["portfolio", "web developer", "frontend", "fullstack", "React", "Next.js"],
   authors: [{ name: "Developer" }],
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/icon.svg",
+    apple: "/apple-icon.png",
+  },
   openGraph: {
     title: "Portfolio | Full Stack Developer",
     description: "Modern portfolio showcasing web development projects and skills.",
